@@ -110,7 +110,6 @@ function initFormHandler() {
     localStorage.clear();
     let mainEl = document.querySelector('main');
     mainEl.textContent='';
-    console.log(mainEl);
   });
   // Steps B12 & B13 will occur inside the event listener from step B11
   // B12. TODO - Clear the local storage
