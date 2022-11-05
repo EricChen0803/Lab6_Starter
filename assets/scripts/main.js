@@ -25,7 +25,11 @@ function getRecipesFromStorage() {
   //           header. It is possible in only a single line, but should
   //           be no more than a few lines.
   const arrEl = localStorage.getItem('recipes');
-  return JSON.parse(arrEl);
+  var RS = JSON.parse(arrEl);
+  if(RS == null){
+    return new Array();
+  }
+  return RS;
 }
 
 /**
@@ -84,7 +88,7 @@ function initFormHandler() {
     cardEl.data = recipeObject;//B7
     let mainEl = document.querySelector('main');
     mainEl.append(cardEl);//B8
-    let arrEl = JSON.parse(localStorage.getItem('recipes'));
+    let arrEl = getRecipesFromStorage();
     arrEl.push(recipeObject);
     localStorage.setItem('recipes',JSON.stringify(arrEl));//B9
     event.preventDefault();
